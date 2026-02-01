@@ -55,5 +55,7 @@ export enum Tab {
   CHARTS = 'charts',
   ANALYSIS = 'analysis',
   DJC = 'djc',
-  PRECIPITATION = 'precipitation'
+  PRECIPITATION = 'precipitation',
+  EXTREMES = 'extremes',
+  IA = 'ia'
 }

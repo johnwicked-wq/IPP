@@ -71,12 +71,9 @@ export const getWeatherData = async (): Promise<{
     const dailyResults = await Promise.all(dailySegments);
     const rawDailyObs = dailyResults.flatMap(r => r.observations || []);
 
-    // --- DÉDUPLICATION PAR DATE ---
     const dailyMap = new Map<string, any>();
     rawDailyObs.forEach(obs => {
-        // On utilise le début de la date locale comme clé unique (YYYY-MM-DD)
         const dateKey = obs.obsTimeLocal.split(' ')[0];
-        // On ne garde que la mesure la plus complète ou la dernière reçue
         dailyMap.set(dateKey, obs);
     });
 
@@ -87,9 +84,10 @@ export const getWeatherData = async (): Promise<{
         tempLow: d.metric.tempLow,
         tempAvg: d.metric.tempAvg,
         dewPointAvg: d.metric.dewptAvg || 0,
-        humidityHigh: d.metric.humidityHigh || 0,
-        humidityLow: d.metric.humidityLow || 0,
-        humidityAvg: d.metric.humidityAvg || 0,
+        // L'humidité dans l'historique quotidien est à la racine, pas dans 'metric'
+        humidityHigh: d.humidityHigh ?? d.metric.humidityHigh ?? 0,
+        humidityLow: d.humidityLow ?? d.metric.humidityLow ?? 0,
+        humidityAvg: d.humidityAvg ?? d.metric.humidityAvg ?? 0,
         pressureMax: d.metric.pressureMax || 0,
         pressureMin: d.metric.pressureMin || 0,
         pressureAvg: d.metric.pressureMax || 0,
