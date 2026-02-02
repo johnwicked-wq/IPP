@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useMemo } from 'react';
 import { createRoot } from 'react-dom/client';
 import { getWeatherData } from './services/weatherService';
@@ -965,7 +964,7 @@ const ThermalAmplitudeTab: React.FC<{ dailyHistory: DailyHistoryPoint[] }> = ({ 
                 <div className="lg:col-span-3 flex flex-col gap-4">
                     <button onClick={() => setShowCriticalModal(true)} className="glass-panel p-6 rounded-[2rem] border border-slate-800 text-center hover:bg-slate-800/50 transition-all">
                         <span className="text-4xl font-black text-white block mb-2">{stats.totalCritical}</span>
-                        <span className="text-[9px] font-black text-slate-500 uppercase">JOURS CRITIQUES (>15°C)</span>
+                        <span className="text-[9px] font-black text-slate-500 uppercase">JOURS CRITIQUES (&gt;15°C)</span>
                     </button>
                     <div className="glass-panel p-6 rounded-[2rem] border border-slate-800 text-center">
                         <span className="text-4xl font-black text-white block mb-2">{stats.maxAmp.toFixed(1)}°</span>
