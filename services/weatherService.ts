@@ -4,7 +4,8 @@ import { CurrentConditions, HistoryPoint, DailyHistoryPoint } from '../types';
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
 const STATION_ID = 'IPLLAU91';
-const BASE_URL = 'https://api.weather.com/v2/pws/observations';
+//const BASE_URL = 'https://api.weather.com/v2/pws/observations';
+const BASE_URL = 'https://corsproxy.io/?' + encodeURIComponent('https://api.weather.com/v2/pws/observations/current');
 const HISTORY_HOURLY_URL = 'https://api.weather.com/v2/pws/history/hourly';
 const HISTORY_DAILY_URL = 'https://api.weather.com/v2/pws/history/daily';
 
