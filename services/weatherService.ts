@@ -1,7 +1,7 @@
 
 import { CurrentConditions, HistoryPoint, DailyHistoryPoint } from '../types';
 
-const API_KEY = '2e742c284af1473bb42c284af1f73b7f';
+const API_KEY = 'API_KEY';
 const STATION_ID = 'IPLLAU91';
 const BASE_URL = 'https://api.weather.com/v2/pws/observations';
 const HISTORY_HOURLY_URL = 'https://api.weather.com/v2/pws/history/hourly';
